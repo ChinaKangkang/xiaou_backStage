@@ -4,7 +4,16 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-
+// 引入emelent-ui组件库
+import ElementUI from 'element-ui'
+// 引入element-ui全局样式
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+//全局组件注册
+import component from './common/index'
+for(let k in component ){
+  Vue.component(k,component[k])
+}
 new Vue({
   router,
   store,
