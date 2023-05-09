@@ -77,13 +77,15 @@ export const specscount = (data) => get('specscount', data)
 // 商品管理列表
 export const goodslist = (data) => get('goodslist', data)
 //商品管理添加
-export const goodsadd = (data) => post('goodsadd', data,true)
+export const goodsadd = (data) => post('goodsadd', data, true)
 //商品管理列表一条
-export const goodsinfo = (data)=>get('goodsinfo',data)
+export const goodsinfo = (data) => get('goodsinfo', data)
 //商品管理编辑
-export const goodsedit = (data)=>post('goodsedit',data,true)
+export const goodsedit = (data) => post('goodsedit', data, true)
 //商品管理删除
-export const goodsdelete = (data)=>post('goodsdelete',data)
+export const goodsdelete = (data) => post('goodsdelete', data)
+//总条数
+export const goodscount = (data) => get('goodscount', data)
 
 /*=============会员管理================*/
 
@@ -93,3 +95,29 @@ export const memberlist = (data) => get('memberlist', data)
 export const memberinfo = (data) => get('memberinfo', data)
 //会员修改
 export const memberedit = (data) => post('memberedit', data)
+
+/*=============轮播图管理================*/
+
+//轮播图添加
+export const banneradd = (data) => post('banneradd', data, true)
+//获取轮播图数据
+export const bannerlist = (data) => get('bannerlist', data)
+//轮播图数据 获取一条
+export const bannerinfo = (data) => get('bannerinfo', data)
+//轮播图修改
+export const banneredit = (data) => post('banneredit', data, true)
+//轮播图删除
+export const bannerdelete = (data) => post('bannerdelete', data)
+
+/*=============限时秒杀管理================*/
+
+//限时秒杀添加
+export const seckadd = (data) => post('seckadd', data)
+//限时秒杀列表
+export const secklist = (data) => get('secklist', data)
+//限时秒杀列表 获取一条
+export const seckinfo = (data) => get('seckinfo', data)
+//限时秒杀修改
+export const seckedit = (data) => post('seckedit', data)
+//限时秒杀删除
+export const seckdelete = (data) => post('seckdelete', data)

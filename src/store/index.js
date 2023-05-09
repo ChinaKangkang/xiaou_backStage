@@ -10,6 +10,8 @@ import classify from './modules/classifyshop/index.js'//商品分类
 import specs from './modules/specs/index.js'//商品规格
 import goodsinfo from './modules/goodsinfo/index.js'//商品管理
 import member from './modules/member/index.js'//会员管理
+import banner from './modules/banner/index.js'//轮播图管理
+import seck from './modules/seck/index.js'//秒杀活动
 export default new Vuex.Store({
   state: {
     //登录信息
@@ -43,6 +45,6 @@ export default new Vuex.Store({
   modules: {
     //模块
     menu, role, admin, classify, specs, goodsinfo,
-    member
+    member, banner, seck
   }
 })

@@ -7,7 +7,7 @@
                     <el-input v-model="form.specsname" autocomplete="off"></el-input>
                 </el-form-item>
                 <!-- 商品属性 -->
-                <el-form-item label="规格属性" v-for="(item, index) in attrArr">
+                <el-form-item label="规格属性" v-for="(item, index) in attrArr" :key="item.id">
                     <el-input v-model="item.value" autocomplete="off" class="elfrom_btn" placeholder="属性不能为空"></el-input>
                     <el-button type="primary" v-if="index == 0" @click="addPush(index)">新增规格属性</el-button>
                     <el-button v-else @click="del(index)">删除</el-button>

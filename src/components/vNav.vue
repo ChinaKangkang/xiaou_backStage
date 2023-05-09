@@ -62,7 +62,7 @@ export default {
     mounted() {
         //页面初始化刷新选中的菜单
         this.defaultactive = this.$route.path
-        // console.log(this.$store.getters.getuserinfo);
+        console.log(this.$store.getters.getuserinfo);
     },
     watch: {},
     computed: {},

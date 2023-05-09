@@ -80,6 +80,22 @@ export const IndexRouter = [
     meta:{
       title:'会员列表'
     }
+  },
+  {
+    path:'/banner',
+    component:()=>import('../views/banner/banner.vue'),
+    name:'轮播图管理',
+    meta:{
+      title:'轮播图管理'
+    }
+  },
+  {
+    path:'/seck',
+    component:()=>import('../views/seck/seck.vue'),
+    name:'秒杀活动',
+    meta:{
+      title:'活动列表'
+    }
   }
 ]
 Vue.use(VueRouter)

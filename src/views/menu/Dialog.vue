@@ -109,7 +109,7 @@ export default {
                 "el-icon-s-goods",
                 "el-icon-goods",
             ],
-            IndexRouter:IndexRouter
+            IndexRouter: IndexRouter
         }
     },
     methods: {

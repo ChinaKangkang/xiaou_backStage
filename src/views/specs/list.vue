@@ -8,7 +8,8 @@
             <el-table-column label="规格属性" width="180">
                 <!-- 规格属性的渲染 -->
                 <template slot-scope="item">
-                    <el-button v-for="item in item.row.attrs" size="mini"> {{ item }}</el-button>
+                    <!-- <el-button v-for="item in item.row.attrs" size="mini"> {{ item }}</el-button> -->
+                    <button v-for="item in item.row.attrs" :key="item.id">{{ item }}</button>
                 </template>
             </el-table-column>
             <el-table-column label="状态" width="180">
@@ -119,5 +120,9 @@ export default {
 .page {
     float: right;
     margin: 10px;
+}
+
+button {
+    margin: 0 3px;
 }
 </style>
