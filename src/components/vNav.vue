@@ -12,7 +12,7 @@
             collapse	是否水平折叠收起菜单（仅在 mode 为 vertical 时可用）
             router	是否使用 vue-router 的模式，启用该模式会在激活导航时以 index 作为 path 进行路由跳转
          -->
-        <el-menu :default-active="defaultactive" class="" :collapse="isCollapse" background-color="#3D5F81"
+        <el-menu :default-active="defaultactive" class="" :collapse="isCollapse" background-color="#333743"
             text-color="#fff" router>
             <!-- 菜单栏 -->
             <el-menu-item index="/home">
@@ -20,7 +20,7 @@
                 <span slot="title">首页</span>
             </el-menu-item>
             <!-- 选项一 -->
-            <el-submenu :index="item.id + ''" v-for="item in this.$store.getters.getuserinfo.menus" :key="item.id">
+            <el-submenu :index="item.id + ''" v-for="item in userInfo" :key="item.id">
                 <template slot="title">
                     <i class="el-icon-s-tools"></i>
                     <span slot="title">{{ item.title }}</span>
@@ -54,7 +54,8 @@ export default {
             //是否开启隐藏菜单
             isCollapse: false,
             //刷新默认选中菜单
-            defaultactive: '/home'
+            defaultactive: '/home',
+            userInfo: this.$store.getters.getuserinfo.menus ? this.$store.getters.getuserinfo.menus : []
         }
     },
 
@@ -62,7 +63,7 @@ export default {
     mounted() {
         //页面初始化刷新选中的菜单
         this.defaultactive = this.$route.path
-        console.log(this.$store.getters.getuserinfo);
+        // console.log(this.$store.getters.getuserinfo);
     },
     watch: {},
     computed: {},
@@ -74,7 +75,7 @@ export default {
 <style scoped lang="less">
 .el-menu {
     width: 260px;
-    min-height: 600px;
-    /* background-color: #3D5F81; */
+    min-height: 700px;
+    //  background-color: #333743;
 }
 </style>

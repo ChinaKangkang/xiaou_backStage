@@ -11,11 +11,24 @@
             <!-- 顶栏容器 -->
             <el-header>
                 <div>
-                    小U商城后台管理系统
+                    小U后台管理Vue2
                 </div>
                 <div style="font-size: 20px;">
-                    欢迎-{{ $store.getters.getuserinfo.username }}-登录小U后台系统
-                    <el-button type="danger" @click="leave">退出登录</el-button>
+                    <!-- 欢迎-{{ $store.getters.getuserinfo.username }}-登录小U后台系统
+                    <el-button type="danger" @click="leave">退出登录</el-button> -->
+                    <el-dropdown trigger="click" @command="leave" @visible-change="aaa">
+                        <span class="el-dropdown-link">
+                            <i class="el-icon-user-solid"></i>
+                            欢迎 {{ userName }}
+                            <i v-if="Tag" class="el-icon-arrow-up el-icon--right"></i>
+                            <i v-else class="el-icon-arrow-down el-icon--right"></i>
+
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item command="退出登录">退出登录</el-dropdown-item>
+                            <el-dropdown-item command="测试">测试</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </div>
             </el-header>
             <!-- 内容区 -->
@@ -32,36 +45,52 @@
     </div>
 </template>
 <script>
+import { Tag } from 'element-ui';
 import vNav from '../components/vNav.vue'
 export default {
     data() {
         return {
-
+            userName: this.$store.getters.getuserinfo.username ? this.$store.getters.getuserinfo.username : [],
+            Tag: false
         }
     },
+
     methods: {
+        aaa(e) {
+            // console.log(e);
+            this.Tag = e
+        },
         //退出登录
-        leave() {
+        leave(command) {
 
-            this.$confirm("你确定要离开我吗?", "提示", {
-                confirmButtonText: "确定",
-                cancelButtonText: "取消",
-                type: "warning",
-            }).then(res => {
-                console.log(res);
-                this.$message.success('退出成功')
-                //更新仓库
-                this.$store.dispatch('changeuserInfo', false)
-                //跳转登录
-                this.$router.push('/login')
+            console.log(command);
+            if (command == '退出登录') {
+                this.$confirm("你确定要离开我吗?", "提示", {
+                    confirmButtonText: "确定",
+                    cancelButtonText: "取消",
+                    type: "warning",
+                }).then(res => {
+                    console.log(res);
+                    this.$message.success('退出成功')
+                    //更新仓库
+                    this.$store.dispatch('changeuserInfo', false)
+                    //跳转登录
+                    this.$router.push('/login')
 
-            }).catch(err=>{
-               console.log(err);
-               this.$message.error('取消退出')
-            })
-        }
+                }).catch(err => {
+                    console.log(err);
+                    this.$message.error('取消退出')
+                })
+            } else if (command == '测试') {
+                alert(command)
+            }
+        },
+
     },
-    mounted() { },
+
+    mounted() {
+
+    },
     watch: {},
     computed: {},
     filters: {},
@@ -73,7 +102,7 @@ export default {
 </script>
 <style scoped lang="less">
 .el-header {
-    background-color: #65696c;
+    background-color: #383D41;
     // text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -81,5 +110,14 @@ export default {
     line-height: 60px;
     display: flex;
     justify-content: space-between;
+}
+
+.el-dropdown-link {
+    cursor: pointer;
+    color: #fff;
+}
+
+.el-icon-arrow-down {
+    font-size: 12px;
 }
 </style>

@@ -113,7 +113,7 @@ export default {
         //页面加载就执行获取列表
         this.getAdminList()
         //页面加载执行获取总条数
-        this.getCount() 
+        this.getCount()
         //更新页码 不然切换页面会停留在第二页  默认切换第一页
         this.changepage(1)
     },

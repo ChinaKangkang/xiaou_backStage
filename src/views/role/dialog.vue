@@ -24,9 +24,9 @@
                 <el-form-item label="角色权限">
                     <el-tree :data="$store.getters['menu/getMenu']" show-checkbox default-expand-all node-key="id"
                         ref="tree" :props="{
-                                children: 'children',
-                                label: 'title',
-                            }" highlight-current :check-strictly="true">
+                            children: 'children',
+                            label: 'title',
+                        }" highlight-current :check-strictly="true">
                     </el-tree>
                 </el-form-item>
                 <!-- 状态 -->

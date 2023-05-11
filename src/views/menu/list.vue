@@ -6,7 +6,8 @@
             支持树类型的数据的显示。当 row 中包含 children 字段时，被视为树形数据。渲染树形数据时，必须要指定 row-key。支持子节点数据异步加载。设置 Table 的 lazy 属性为 true 与加载函数 load 。通过指定 row 中的 hasChildren 字段来指定哪些行是包含子节点。children 与 hasChildren 都可以通过 tree-props 配置。
             default-expand-all 是否展开所有行
         -->
-        <el-table default-expand-all :data="menuList" border style="width: 100%" row-key="id" :tree-props="{ children: 'children' }">
+        <el-table default-expand-all :data="menuList" border style="width: 100%" row-key="id"
+            :tree-props="{ children: 'children' }">
             <el-table-column prop="id" label="菜单编号" width="80">
             </el-table-column>
             <el-table-column prop="title" label="菜单名称" width="170">
@@ -27,7 +28,7 @@
                 <template slot-scope="item">
                     <div>
                         <!-- item是组件的数据 row是当前的这一行 -->
-                        <el-button type="success" size="small" v-if="item.row.status == 1 ">启用</el-button>
+                        <el-button type="success" size="small" v-if="item.row.status == 1">启用</el-button>
                         <el-button type="danger" size="small" v-else>禁用</el-button>
                     </div>
                 </template>

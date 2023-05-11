@@ -14,6 +14,9 @@ import component from './common/index'
 for(let k in component ){
   Vue.component(k,component[k])
 }
+//引入echarts图表
+import * as echarts from "echarts"
+Vue.prototype.$echarts = echarts
 new Vue({
   router,
   store,
