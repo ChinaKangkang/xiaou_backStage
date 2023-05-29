@@ -69,6 +69,14 @@ export default {
             changepage: "admin/changepage"//获取当前页行动  并重新调用列表
         }),
         del(uid) {
+            // console.log(uid)
+            if (uid == 'eaebed20-e35c-11ed-af82-012661df8010') {
+                this.$message({
+                    type: 'warning',
+                    message: '超管账户禁止删除',
+                });
+                return
+            }
             // 删除数据
             this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
                 confirmButtonText: '确定',

@@ -31,7 +31,7 @@
                 <!-- 顶级分类不需要添加图片 所以是顶级分类时 图片上传就隐藏 -->
                 <el-form-item v-if="form.pid != 0" label="图片" prop="img" limit="1" :auto-upload="false">
                     <el-upload action="#" list-type="picture-card" :auto-upload="false" :on-preview="onPreview"
-                        :on-change="onChange" :file-list="fileList"  :limit="1">
+                        :on-change="onChange" :file-list="fileList" :limit="1">
                         <i class="el-icon-plus"></i>
                     </el-upload>
                     <!-- 图片预览 -->
@@ -94,6 +94,7 @@ export default {
             console.log(123, file);
             this.isDialog = true;//显示预览图
             this.urlImage = file.url//给预览图图片赋值地址
+            console.log(this.fileList);
         },
         ...mapActions({
             getclassify: "classify/getclassifyShoplist"//请求数据列表

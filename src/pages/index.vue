@@ -16,7 +16,7 @@
                 <div style="font-size: 20px;">
                     <!-- 欢迎-{{ $store.getters.getuserinfo.username }}-登录小U后台系统
                     <el-button type="danger" @click="leave">退出登录</el-button> -->
-                    <el-dropdown trigger="click" @command="leave" @visible-change="aaa">
+                    <el-dropdown trigger="click" @command="leave" @visible-change="jiantou">
                         <span class="el-dropdown-link">
                             <i class="el-icon-user-solid"></i>
                             欢迎 {{ userName }}
@@ -54,9 +54,9 @@ export default {
             Tag: false
         }
     },
-
     methods: {
-        aaa(e) {
+        //切换箭头
+        jiantou(e) {
             // console.log(e);
             this.Tag = e
         },
